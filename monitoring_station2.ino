@@ -128,10 +128,9 @@ void loop()
   
 
   //  publish the DHT data to the feeds
-
-  
-  
-
+  if (!tc.publish(tempc) || !tf.publish(tempf) || !tk.publish(tempk) || !dp.publish(dew_point) || !h.publish(humidity)) { 
+    Serial.println("Can't publish!"); 
+  }
   //  subscribe the slider values to control RGB
   
   
