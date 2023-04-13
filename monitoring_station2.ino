@@ -14,6 +14,7 @@ byte resolution = 8;
 int frequency = 5000;
 
 //  dht details
+byte rval , gval , bval = 0; 
 byte dht_pin = 4;
 #define dht_type DHT11
 DHT dht(dht_pin , dht_type);
@@ -56,12 +57,11 @@ Adafruit_MQTT_Subscribe blue = Adafruit_MQTT_Subscribe(&mqtt , IO_USERNAME"/feed
   Adafruit_MQTT_Publish feed object = Adafruit_MQTT_Publish(&mqtt , IO_USERNAME"/feeds/FEED NAME");  
  */
  
- Adafruit_MQTT_Publish humidity = Adafruit_MQTT_Publish(&mqtt,"Mrm18/feeds/humidity");
-
- Adafruit_MQTT_Publish Pressure = Adafruit_MQTT_Publish(&mqtt, "Mrm18/feeds/Pressure");
- 
-
-
+ Adafruit_MQTT_Publish dp = Adafruit_MQTT_Publish(&mqtt , "Mrm18/feeds/dew"); 
+ Adafruit_MQTT_Publish tc = Adafruit_MQTT_Publish(&mqtt , "Mrm18/feeds/temperature celcius"); 
+ Adafruit_MQTT_Publish tf = Adafruit_MQTT_Publish(&mqtt , "Mrm18/feeds/temperature fahrenheit"); 
+ Adafruit_MQTT_Publish tk = Adafruit_MQTT_Publish(&mqtt , "Mrm18/feeds/temperature kelvin"); 
+ Adafruit_MQTT_Publish h = Adafruit_MQTT_Publish(&mqtt , "Mrm18/feeds/humidity");
 
 
 
